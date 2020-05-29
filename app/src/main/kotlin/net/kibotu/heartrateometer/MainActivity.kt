@@ -23,15 +23,12 @@ class MainActivity : AppCompatActivity() {
 
         playButton.setOnClickListener {
             val intent = Intent(this, UnityPlayerActivity::class.java)
-            intent.putExtra("velocityMove", 5)
+            intent.putExtra("velocityMove", 20)
             startActivity(intent)
         }
-        // TODO E/Unity: NullReferenceException: Object reference not set to an instance of an object.
-        //      at PlayerControls.PathLength () [0x00000] in <00000000000000000000000000000000>:0
-        //      at ScoreScript.get_Score () [0x00000] in <00000000000000000000000000000000>:0
-        //      at ScoreScript.Update () [0x00000] in <00000000000000000000000000000000>:0
+
         // TODO assign proper speed
-        // TODO screen size
+        // TODO exit button
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
