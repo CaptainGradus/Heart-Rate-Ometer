@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import net.kibotu.heartrateometer.app.MeasureActivity
 import net.kibotu.heartrateometer.app.R
+import com.unity3d.player.UnityPlayerActivity
 
 class MainActivity : AppCompatActivity() {
     enum class Status { Calm, Average, Stressed, Panic }
@@ -21,7 +22,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         playButton.setOnClickListener {
+            val intent = Intent(this, UnityPlayerActivity::class.java)
+            intent.putExtra("velocityMove", 5)
+            startActivity(intent)
         }
+        // TODO E/Unity: NullReferenceException: Object reference not set to an instance of an object.
+        //      at PlayerControls.PathLength () [0x00000] in <00000000000000000000000000000000>:0
+        //      at ScoreScript.get_Score () [0x00000] in <00000000000000000000000000000000>:0
+        //      at ScoreScript.Update () [0x00000] in <00000000000000000000000000000000>:0
+        // TODO assign proper speed
+        // TODO screen size
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

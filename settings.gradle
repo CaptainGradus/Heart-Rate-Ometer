@@ -1,1 +1,1 @@
-include ':app', ':heartrateometer'
+include ':app', ':heartrateometer', ':launcher-debug', ':unityLibrary-debug'
