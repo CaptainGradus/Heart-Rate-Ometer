@@ -1,1 +1,4 @@
-include ':app', ':heartrateometer', ':launcher-debug', ':unityLibrary-debug'
+include ':unityLibrary-debug'
+include ':launcher-debug'
+include ':launcher-debug'
+include ':app', ':heartrateometer'

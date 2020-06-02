@@ -43,7 +43,7 @@ class MeasureActivity : AppCompatActivity() {
 
         // wait for the finger
         val bpmUpdates = HeartRateOmeter()
-                .withAverageAfterSeconds(5)
+                .withAverageAfterSeconds(3)
                 .setFingerDetectionListener(this::onFingerChange)
                 .bpmUpdates(preview)
                 .subscribe({
@@ -71,12 +71,12 @@ class MeasureActivity : AppCompatActivity() {
     private fun onBpm(bpm: HeartRateOmeter.Bpm) {
         // Log.v("HeartRateOmeter", "[onBpm] $bpm")
         label.text = "${bpm.value} bpm"
-        Thread.sleep(20000)
+        Thread.sleep(2000)
         exit(bpm.value)
     }
 
     private fun onFingerChange(fingerDetected: Boolean){
-        finger.text = "$fingerDetected"
+        finger.text = "Is finger on the camera? - $fingerDetected"
     }
 
 // region lifecycle
