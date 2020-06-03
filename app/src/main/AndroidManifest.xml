@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme">
+        <activity
+            android:name=".StatsActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".GameActivity" />
         <activity
             android:name=".MeasureActivity"
@@ -20,6 +23,7 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

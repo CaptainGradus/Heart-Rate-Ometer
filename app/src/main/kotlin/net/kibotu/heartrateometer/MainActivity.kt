@@ -9,34 +9,37 @@ import kotlinx.android.synthetic.main.activity_main.*
 import net.kibotu.heartrateometer.app.GameActivity
 import net.kibotu.heartrateometer.app.MeasureActivity
 import net.kibotu.heartrateometer.app.R
+import net.kibotu.heartrateometer.app.StatsActivity
 import java.io.*
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
+import kotlin.collections.HashMap
 
 
 class MainActivity : AppCompatActivity() {
     enum class Status { Calm, Average, Stressed, Panic }
 
     private val FILE_TO_STORE_HISTORY = "historyMap"
-    private var historyMap: MutableMap<Date, Int> = mutableMapOf()
+    private var historyMap: HashMap<Date, Int> = hashMapOf()
     private var status: Status? = null
         set(value) {
             field = value
             statusView.text = value.toString()
         }
 
-    override fun onCreate(savedInstanceState: Bundle?) { // todo I don't need to save status if I save the whole history
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         // retrieving history data
-        val f = File(FILE_TO_STORE_HISTORY)
+        val f = File("$filesDir/$FILE_TO_STORE_HISTORY")
         if (f.isFile && f.canRead()) {
             val fileInputStream = FileInputStream(f)
             val objectInputStream = ObjectInputStream(fileInputStream)
 
-            historyMap = objectInputStream.readObject() as MutableMap<Date, Int>
+            historyMap = objectInputStream.readObject() as HashMap<Date, Int>
             objectInputStream.close()
         }
 
@@ -59,6 +62,19 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val toast = Toast.makeText(applicationContext,
                         "First measure the heartbeat!", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+        }
+
+        // stats
+        statsButton.setOnClickListener {
+            if (historyMap.size > 1) {
+                val intent = Intent(this, StatsActivity::class.java)
+                intent.putExtra("historyMap", historyMap)
+                startActivity(intent)
+            } else {
+                val toast = Toast.makeText(applicationContext,
+                        "First measure the heartbeat at least 2 time!", Toast.LENGTH_SHORT)
                 toast.show()
             }
         }
