@@ -77,4 +77,5 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.72'
     implementation project(":unityLibrary-debug")
     implementation project(":launcher-debug")
+    implementation 'com.jjoe64:graphview:4.2.2'
 }
