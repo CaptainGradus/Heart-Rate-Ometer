@@ -12,11 +12,11 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:theme">
         <activity
-            android:name=".StatsActivity"
+            android:name="net.kibotu.heartrateometer.StatsActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".GameActivity" />
+        <activity android:name="net.kibotu.heartrateometer.GameActivity" />
         <activity
-            android:name=".MeasureActivity"
+            android:name="net.kibotu.heartrateometer.MeasureActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="net.kibotu.heartrateometer.MainActivity"

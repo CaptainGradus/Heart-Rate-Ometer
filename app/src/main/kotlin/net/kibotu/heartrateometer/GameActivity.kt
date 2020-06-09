@@ -1,4 +1,4 @@
-package net.kibotu.heartrateometer.app
+package net.kibotu.heartrateometer
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -12,7 +12,8 @@ class GameActivity : AppCompatActivity() {
 
         // running the game
         val intentForUnity = Intent(this, UnityPlayerActivity::class.java)
-        intentForUnity.putExtra("velocityMove", intent.getIntExtra("velocityMove", 0))
+        intentForUnity.putExtra("velocityMove",
+                intent.getIntExtra("velocityMove", 0))
         startActivity(intentForUnity)
     }
 }

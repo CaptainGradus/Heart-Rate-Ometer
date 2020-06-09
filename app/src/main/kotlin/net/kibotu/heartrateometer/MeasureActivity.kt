@@ -1,4 +1,4 @@
-package net.kibotu.heartrateometer.app
+package net.kibotu.heartrateometer
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.activity_measure.*
-import net.kibotu.heartrateometer.HeartRateOmeter
+import net.kibotu.heartrateometer.app.R
 import net.kibotu.kalmanrx.jama.Matrix
 import net.kibotu.kalmanrx.jkalman.JKalman
 

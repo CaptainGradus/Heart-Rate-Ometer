@@ -6,16 +6,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import net.kibotu.heartrateometer.app.GameActivity
-import net.kibotu.heartrateometer.app.MeasureActivity
 import net.kibotu.heartrateometer.app.R
-import net.kibotu.heartrateometer.app.StatsActivity
-import java.io.*
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
+import java.io.File
+import java.io.FileInputStream
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
 import java.util.*
-import kotlin.collections.HashMap
 
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private var status: Status? = null
         set(value) {
             field = value
-            statusView.text = value.toString()
+            statusView.text = value?.toString() ?: "status unknown"
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
