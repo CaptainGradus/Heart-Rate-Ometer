@@ -7,7 +7,7 @@ About the author:
 
 ## Introduction
 
-Measures human heart rate using camera and flash light.
+Measures human **heart rate** using camera and flash light.
 
 Process:
 1. Measure your heart rate.
@@ -33,6 +33,10 @@ This is a simple platformer where the speed depends on your heart rate!
 <img src="https://raw.githubusercontent.com/CaptainGradus/Heart-Rate-Ometer/master/Screenshots/Stats.png" alt="statistics" width="200"/>
 
 ### Development:
-The game is built on Unity and embedded in the app as a library. 
+The game is built on Unity and embedded into the app as a library (into Android Studio Project). 
 
 <img src="https://raw.githubusercontent.com/CaptainGradus/Heart-Rate-Ometer/master/Screenshots/Unity_dev.png" alt="developing the game on unity" width="600"/>
+
+* Graddle version: 6.1.1
+* Min SDK: 21 (Android 5.0)
+* Language: Kotlin 1.3
